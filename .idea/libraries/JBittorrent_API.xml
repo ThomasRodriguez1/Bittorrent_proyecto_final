@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="JBittorrent_API">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ext/trackerBT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/jaxen-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/freemarker.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/jaxen-jdom.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/ant.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/kxml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/velocity.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/saxpath.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/simple-upload-0.3.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/groovy.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/jdom.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/jBittorrentAPI.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/xerces.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/xalan.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/xml-apis.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/ext/simple-upload-0.3.4.jar!/" />
+    </SOURCES>
+  </library>
+</component>
