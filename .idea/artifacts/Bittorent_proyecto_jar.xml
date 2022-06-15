@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Bittorent_proyecto:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Bittorent_proyecto_jar</output-path>
+    <root id="archive" name="Bittorent_proyecto.jar">
+      <element id="module-output" name="Bittorent_proyecto" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/trackerBT.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/jaxen-core.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/freemarker.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/jaxen-jdom.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/ant.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/kxml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/velocity.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/saxpath.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/simple-upload-0.3.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/groovy.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/jdom.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/jBittorrentAPI.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/xerces.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/xalan.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/ext/xml-apis.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
