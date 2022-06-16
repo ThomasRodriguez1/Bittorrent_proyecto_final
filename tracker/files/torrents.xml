@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<torrentlist>
+  <torrent>
+    <name>prueba.torrent</name>
+    <info />
+    <comment />
+    <hash>E2E570275DCCE630B4009496B6F3285B55DB8608</hash>
+  </torrent>
+  <torrent>
+    <name>prueba2.torrent</name>
+    <info />
+    <comment />
+    <hash>6436C99159AEB9DCCA69429C7604EBFCFC84AE36</hash>
+  </torrent>
+</torrentlist>
+

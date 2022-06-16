@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.*;
 
+import hilos.tracker_xml;
 import simple.http.connect.*;
 import simple.http.load.*;
 import simple.http.serve.*;
@@ -9,6 +10,7 @@ import trackerBT.Constants;
 public class Tracker {
 
     public static void main(String[] args) {
+
         if (args.length > 0) {
             try {
                 Constants.loadConfig(args[0]);//Toma la direccion de donde se encuentra el archivo de configuracion, en el que se encuentra el puerto a escuchar
@@ -23,6 +25,7 @@ public class Tracker {
                     "No se indicio la direccion del archivo de configuracion");
             System.exit(0);
         }
+         tracker_xml peersHilos =new tracker_xml();
         new File((String) Constants.get("context")).mkdirs();
         try {
             FileWriter fw = new FileWriter((String) Constants.get("context") +
@@ -56,6 +59,7 @@ public class Tracker {
                             "\t*   Presiona enter para detener el tracker    *\r\n" +
                             "\t********************************************\r\n");
             // Setup the I/O buffered stream, to read user input from the command line
+            peersHilos.start();
             InputStreamReader isr = new InputStreamReader(System.in);
             BufferedReader br = new BufferedReader(isr);
             String s = null;

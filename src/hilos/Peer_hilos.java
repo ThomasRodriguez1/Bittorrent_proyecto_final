@@ -1,3 +1,6 @@
+package hilos;
+
+import jBittorrentAPI.*;
 
 
 import java.io.BufferedReader;
@@ -6,16 +9,26 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-import jBittorrentAPI.*;
+public class Peer_hilos {
+    static final int MAX_T=6; //maximo valor de hilos en el pool de hilos
 
-public class Peer {
+    descarga Descargas[] =new descarga[MAX_T]; //Array de hilos
 
-    public Peer(String[] args) throws IOException {
+    public Peer_hilos(String[] args) throws IOException {
         int opcion=0;
-
+        int iterador=0;
         boolean flag_opcion=true;
+
         Scanner scanner=new Scanner(System.in);
         BufferedReader bufferReader = new BufferedReader(new InputStreamReader(System.in));
+        /*Runnable runnable1 = new descarga("descarga1");
+        Runnable runnable2 = new descarga("descarga2");
+        Runnable runnable3 = new descarga("descarga3");
+        Runnable runnable4 = new descarga("descarga4");
+        Runnable runnable5 = new descarga("descarga5");
+        Runnable runnable6 = new descarga("descarga6");
+
+        ExecutorService pool = Executors.newFixedThreadPool(MAX_T)*/
 
         while(flag_opcion){
             String direccion_archivos="";
@@ -23,14 +36,12 @@ public class Peer {
             String direccion_archivos_ip="";
             String socket="";
             System.out.println("1.--Compartir torrent\n" +
-                                "2.--Descargar y compartir torrent\n" +
-                                "3.--Agregar torrent al tracker\n" +
-                                "4.--Salir\n");
+                    "2.--Descargar y compartir torrent\n" +
+                    "3.--Agregar torrent al tracker\n" +
+                    "4.--Salir\n");
             System.out.println("Selecciona la opcion que desees: ");
             opcion = scanner.nextInt();
-            if (opcion==1||opcion==2||opcion==3)
-                flag_opcion =false;
-            else if (opcion==4)
+           if (opcion==4)
                 break;
 
 
@@ -40,16 +51,34 @@ public class Peer {
                     direccion_archivos=bufferReader.readLine();
                     System.out.println("\nIngrese la direccion donde se ubica el torrent: ");
                     direccion_torrent = bufferReader.readLine();
+                    if(iterador<=5){
+                        Descargas[iterador].direcciones(direccion_archivos,direccion_torrent);
+                        Descargas[iterador].setName("Archivo"+iterador+":");
+                        Descargas[iterador].start();
+                        iterador++;
+
+                    }else{
+                        System.out.println("Maximo de Archivos alcanzadas");
+                    }
                     break;
                 case 2:
                     System.out.println("\nIngrese la direccion donde se van a guardar los archivos:");
                     direccion_archivos=bufferReader.readLine();
                     System.out.println("\nIngrese la direccion donde se ubica el torrent: ");
                     direccion_torrent = bufferReader.readLine();
+                    if(iterador<5){
+                        Descargas[iterador].direcciones(direccion_archivos,direccion_torrent);
+                        Descargas[iterador].setName("Archivo"+iterador+":");
+                        Descargas[iterador].start();
+                        iterador++;
+
+                    }else{
+                        System.out.println("Maximo de Archivos alcanzadas");
+                    }
                     break;
                 case 3:
-                    System.out.println("\nIngrese la direccion donde se ubican los archivos que hace referencia el torrent:");
-                    direccion_archivos=bufferReader.readLine();
+                    //System.out.println("\nIngrese la direccion donde se ubican los archivos que hace referencia el torrent:");
+                    //direccion_archivos=bufferReader.readLine();
 
                     System.out.println("\nIngrese la direccion donde se ubica el torrent: ");
                     direccion_torrent = bufferReader.readLine();
@@ -64,47 +93,15 @@ public class Peer {
 
                     String[] variables={direccion_torrent,direccion_ip,"none","none"};
                     publicar_tracker(variables);
-                    System.exit(1);
                     break;
             }
-
-            try {
-                TorrentProcessor tp = new TorrentProcessor();
-                TorrentFile t = tp.getTorrentFile(tp.parseTorrent(direccion_torrent));
-                Constants.SAVEPATH = direccion_archivos; //direccion de los archivos del torrent
-                if (t != null) {
-                    DownloadManager dm = new DownloadManager(t, Utils.generateID());//Genera ID
-                    //System.out.println("Escuchando puertos");
-                    dm.startListening(6881, 6889);
-                    //System.out.println("Escuchando puertos 2");
-                    dm.startTrackerUpdate();
-                    //System.out.println("Escuchando puertos 3");
-                    dm.blockUntilCompletion();
-                    //System.out.println("Escuchando puertos 4");
-                    dm.stopTrackerUpdate();
-                    //System.out.println("Escuchando puertos 5");
-                    dm.closeTempFiles();
-                    //System.out.println("Escuchando puertos 6");
-                } else {
-                    System.err.println(
-                            "El archivo no es un .torrent valido");
-                    System.err.flush();
-                    System.exit(1);
-                }
-            } catch (Exception e) {
-
-                System.out.println("Error al procesar el .torrent");
-                //e.printStackTrace();
-                System.exit(1);
-            }
-
 
         }
 
 
     }
     public static void main(String[] args) throws IOException{
-        new Peer(args);
+        new Peer_hilos(args);
     }
     public static void publicar_tracker(String [] args){
 
@@ -117,7 +114,7 @@ public class Peer {
                     args[2], args[3],
                     f.getName(), "", comment, "7");
         }catch(Exception e){
-            System.exit(0);
+            System.out.println("Error, torrent en la BD del tracker");
         }
     }
 

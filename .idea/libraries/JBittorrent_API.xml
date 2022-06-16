@@ -16,6 +16,7 @@
       <root url="jar://$PROJECT_DIR$/ext/xerces.jar!/" />
       <root url="jar://$PROJECT_DIR$/ext/xalan.jar!/" />
       <root url="jar://$PROJECT_DIR$/ext/xml-apis.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ext/dom-2.3.0-jaxb-1.0.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
