@@ -23,7 +23,7 @@ public class tracker_xml extends Thread {
 
         while(true){
             System.out.println(
-                    "\nTracker iniciado! Escuchando en puerto: " + Constants.get("listeningPort") +
+                    "\nHilos_main.Tracker iniciado! Escuchando en puerto: " + Constants.get("listeningPort") +
                             //"\r\n\r\n\t********************************************\r\n" +
                             " *Presiona enter para detener el tracker*\r" );
                             //"\t********************************************\r\n");

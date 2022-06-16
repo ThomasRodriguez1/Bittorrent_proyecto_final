@@ -11,6 +11,7 @@ public class descarga extends Thread {
     @Override
     public void run() {
         try {
+
             TorrentProcessor tp = new TorrentProcessor();
             TorrentFile t = tp.getTorrentFile(tp.parseTorrent(direccion_torrent));
             Constants.SAVEPATH = direccion_archivos; //direccion de los archivos del torrent
@@ -21,7 +22,7 @@ public class descarga extends Thread {
                 //System.out.println("Escuchando puertos 2");
                 dm.startTrackerUpdate();
                 //System.out.println("Escuchando puertos 3");
-                dm.blockUntilCompletion();
+                dm.blockUntilCompletion(this.getName());
                 //System.out.println("Escuchando puertos 4");
                 dm.stopTrackerUpdate();
                 //System.out.println("Escuchando puertos 5");
