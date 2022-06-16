@@ -25,7 +25,15 @@ public class Tracker {
                     "No se indicio la direccion del archivo de configuracion");
             System.exit(0);
         }
-         tracker_xml peersHilos =new tracker_xml();
+        File fichero = new File("./tracker/files/peers.xml");
+        if (fichero.delete())
+            System.out.print("");
+        else
+           System.out.print("");
+
+         tracker_xml peersHilos =new tracker_xml(); //hilo actualizable
+
+
         new File((String) Constants.get("context")).mkdirs();
         try {
             FileWriter fw = new FileWriter((String) Constants.get("context") +
@@ -53,12 +61,13 @@ public class Tracker {
 
             ConnectionFactory.getConnection(engine).connect(new ServerSocket(
                     Integer.parseInt((String)Constants.get("listeningPort"))));
-            System.out.println(
-                    "Tracker iniciado! Escuchando en puerto: " + Constants.get("listeningPort") +
+            /*System.out.println(
+                    "\n\n\nTracker iniciado! Escuchando en puerto: " + Constants.get("listeningPort") +
                             "\r\n\r\n\t********************************************\r\n" +
                             "\t*   Presiona enter para detener el tracker    *\r\n" +
-                            "\t********************************************\r\n");
-            // Setup the I/O buffered stream, to read user input from the command line
+                            "\t********************************************\r\n");*/
+
+            //Instalar el I/O para la lectura del usuario, asi como mostrar la solicitud de archivos de los peers
             peersHilos.start();
             InputStreamReader isr = new InputStreamReader(System.in);
             BufferedReader br = new BufferedReader(isr);

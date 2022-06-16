@@ -52,9 +52,12 @@ public class Peer_hilos {
                     System.out.println("\nIngrese la direccion donde se ubica el torrent: ");
                     direccion_torrent = bufferReader.readLine();
                     if(iterador<=5){
+                        //System.out.println(direccion_torrent);
+                        //System.out.println(direccion_archivos);.
+                        Descargas[iterador]=new descarga();
                         Descargas[iterador].direcciones(direccion_archivos,direccion_torrent);
-                        Descargas[iterador].setName("Archivo"+iterador+":");
                         Descargas[iterador].start();
+                        Descargas[iterador].setName("Archivo"+iterador+":");
                         iterador++;
 
                     }else{
@@ -93,7 +96,7 @@ public class Peer_hilos {
 
                     String[] variables={direccion_torrent,direccion_ip,"none","none"};
                     publicar_tracker(variables);
-                    break;
+                    //break;
             }
 
         }

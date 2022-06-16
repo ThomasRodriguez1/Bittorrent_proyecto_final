@@ -40,8 +40,10 @@ public class descarga extends Thread {
             System.exit(1);
         }
     }
-    public void direcciones(String direccion_torrent,String direccion_archivos){
+    public void direcciones(String direccion_archivos,String direccion_torrent ){
         this.direccion_torrent=direccion_torrent;
+        System.out.println(this.direccion_torrent);
         this.direccion_archivos=direccion_archivos;
+        System.out.println(this.direccion_archivos);
     }
 }
